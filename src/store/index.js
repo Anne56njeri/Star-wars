@@ -9,8 +9,8 @@ import Router from 'vue-router';
   Vue.use(Router)
 export default new Vuex.Store({
     state:{
-    characters=[],
-    character='',
+    characters:[],
+    character:'',
     
     },
     mutations: {
@@ -24,8 +24,9 @@ export default new Vuex.Store({
     },
     actions:{
         getCharactresList({ commit }){
-            axios.get('http https://swapi.co/api/people').then((response)=>{
-            commit('setCharacters',repsonse.data)
+            axios.get('https://swapi.co/api/people').then((response)=>{
+            commit('setCharacters',response.data.results)
+            console.log(response.data.count)
             })
         },
 

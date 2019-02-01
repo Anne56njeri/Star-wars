@@ -1,7 +1,8 @@
 <template>
   <div>
-    <ul v-for="character in characters" :key="character.id" @click="show(character)">
-      <li></li>
+    <ul v-for="(value ,key) in characters " @click="show(value)">
+      <li> {{value.name}}</li>
+
       </ul>
     </div>
  
@@ -20,10 +21,10 @@ export default {
   },
 
   created(){
-    this.$store.dispatch('getCharactersList')
+    this.$store.dispatch('getCharactresList')
   },
   methods: {
-    show(character){
+    show(value){
       this.store.commit('setSelectedCharacter',character);
       this.$router.push("")
     }
